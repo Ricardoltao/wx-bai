@@ -1,0 +1,28 @@
+<!--pages/oneself/record/record.wxml-->
+<view class="record">
+    <view wx:for="{{listPraise}}" wx:key="item" wx:for-index="sindex">
+        <view class="time">{{item.time}}</view>
+        <view class="record_content">
+            <view wx:for="{{item.data}}" wx:key="items" bindtap="select" data-sindex="{{sindex}}" data-index="{{index}}">
+                <view class="record_list">
+                    <view class="click" catchtap="toStory" data-name="{{item.name}}" data-id="{{item.story_id}}"></view>
+                    <image class="l_con" src="{{item.url}}"></image>
+                    <view class="name">{{item.name}}</view>
+                    <view class="shade" wx:if="{{!zan}}"></view>
+                    <view class="checked" wx:if="{{!zan}}">
+                        <image wx:if="{{!item.checked}}" src="../../../images/selected.png"></image>
+                        <image wx:if="{{item.checked}}" src="../../../images/unselected.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="Zan">
+        <view wx:if="{{zan}}" bindtap="management">管理</view>
+        <view wx:else bindtap="complete">完成</view>
+    </view>
+
+    <view class="cancel" bindtap="cancel" animation="{{show}}">取消点赞</view>
+
+</view>

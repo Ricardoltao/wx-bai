@@ -1,0 +1,44 @@
+<!--pages/index/search/search.wxml-->
+<form bindsubmit="formSubmit">
+    <view class="search" bindtap="searchInput">
+        <image src="../../../images/search.png"></image>
+        <input focus="true" value="{{searchName}}" type="text" placeholder="{{storyName}}"
+            bindinput="searchNameInput"></input>
+        <button type="primary" form-type="submit">搜索</button>
+    </view>
+</form>
+
+<view class="history">
+    <view class="title">
+        <view>搜索历史</view>
+        <view class="right" bindtap="delete">清空搜索历史</view>
+    </view>
+    <block wx:for="{{historySearch}}" wx:key="items">
+        <view class="his_con">
+            <view class="text" bindtap="getStory" data-storyname="{{item.storname}}">{{item.storname}}</view>
+            <!-- <view class="delete" bindtap="click_delete" data-id="{{item.id}}" data-name="{{item.storname}}">X</view> -->
+        </view>
+    </block>
+</view>
+
+<view class="hot_search">
+    <view class="title">
+        <view>热门搜索</view>
+        <view class="exchange">换一批<image src="../../../images/exchange.png"></image>
+        </view>
+    </view>
+    <view class="hot_con">
+        <block wx:for="{{hotSearch}}" wx:key="items">
+            <view class="tag" bindtap="getStory" data-storyname="{{item.storname}}">{{item.storname}}</view>
+        </block>
+    </view>
+</view>
+
+<view class="search_con" wx:if="{{listShow}}">
+    <view class="list" wx:for="{{searchStory}}" wx:key="items">
+        <view class="list_content" data-name="{{item.name}}" data-id="{{item.id}}" bindtap="toStory">
+            <image class="l_con" src="{{item.img.url}}"></image>
+            <text class="name">{{item.name}}</text>
+        </view>
+    </view>
+</view>

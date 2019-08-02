@@ -1,0 +1,55 @@
+{
+  "pages": [
+    
+    "pages/login/login",
+    "pages/bookContent/bookContent",
+    "pages/index/index",
+    "pages/oneself/record/record",
+    "pages/index/search/search",
+    "pages/bookshelf/bookshelf",
+    "pages/index/inner/inner",
+    
+    
+    "pages/oneself/oneself"
+    
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "百世通",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar":{
+		"color":"#000000",
+    "selectedColor":"#3ac190",
+    "list":[
+      {
+        "pagePath":"pages/bookshelf/bookshelf",
+        "text":"书架",
+        "iconPath":"images/书架黑.png",
+        "selectedIconPath":"images/书架绿.png"
+      },
+      {
+        "pagePath":"pages/index/index",
+        "text":"百世通",
+        "iconPath":"images/百世通黑.png",
+        "selectedIconPath":"images/百世通绿.png"
+      },
+      {
+        "pagePath":"pages/oneself/oneself",
+        "text":"个人中心",
+        "iconPath":"images/个人中心黑.png",
+        "selectedIconPath":"images/个人中心绿.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "usingComponents":{},
+  "sitemapLocation": "sitemap.json"
+  
+}

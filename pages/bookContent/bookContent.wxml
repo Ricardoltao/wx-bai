@@ -1,0 +1,50 @@
+<!--pages/bookContent/bookContent.wxml-->
+<view id="page">
+    <view class="start" bindtap="clickStart" animation="{{move}}">点击走进{{storyName}}</view>
+
+    <view class="content" wx:if="{{contentShow1}}" animation="{{move1_1}}">欢迎您使用百世通</view>
+    <view class="content" wx:if="{{contentShow1}}" animation="{{move1_2}}">让我带你了解{{storyName}}的历史文化吧</view>
+    <view class="content" wx:if="{{contentShow1}}" animation="{{move1_3}}">请选择你想看的内容</view>
+
+    <view class="select show2" wx:if="{{selectShow2}}" bindtap="select2" animation="{{show2}}">点击这儿</view>
+    <image class="content_img" src="{{list[1].url}}" wx:if="{{contentShow2}}" animation="{{move2}}"></image>
+
+    <!-- 大雁塔的简介 -->
+    <view class="select" wx:if="{{selectShow3}}" bindtap="select3" animation="{{show3}}">{{storyName}}的简介</view>
+    <view class="content" wx:if="{{contentShow3}}" animation="{{move3}}">{{list[0].contents}}</view>
+
+    <!-- 大雁塔的由来 -->
+    <view class="select show4" wx:if="{{selectShow4_1}}" bindtap="select4_1" animation="{{show4}}">{{storyName}}的另一面
+    </view>
+    <view class="content" wx:if="{{contentShow4_1}}" animation="{{move4}}">{{list[2].contents}}</view>
+    <!-- 视频介绍 -->
+    <view class="select" wx:if="{{selectShow4_2}}" bindtap="select4_2" animation="{{show4}}">视频介绍</view>
+    <video src="{{list[3].url}}" wx:if="{{contentShow4_2}}" initial-time="0" autoplay="false" loop="false"
+        muted="{{flase}}"></video>
+
+    <!-- wx:if="{{END}}" animation="{{END}}"-->
+    <!-- 结束 -->
+    <view class="end" wx:if="{{END}}" animation="{{END}}">
+        <view class="top">----The End----</view>
+        <view class="bottom">
+            <view bindtap="clickZan">
+                <view wx:if="{{zanShow}}" class="zan">
+                    <image src="../../images/zann.png"></image>点赞
+                </view>
+                <view wx:else class="zan">
+                    <image src="../../images/zan1.png"></image>取消
+                </view>
+            </view>
+            <view bindtap="clickAdd">
+                <view wx:if="{{addShow}}" class="add">
+                    <image src="../../images/addn.png"></image>加入书架
+                </view>
+                <view wx:else class="add">
+                    <image src="../../images/add.png"></image>已加入
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<button class="share" open-type="share">分享</button>

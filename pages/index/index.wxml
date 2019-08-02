@@ -1,0 +1,70 @@
+<!--index.wxml-->
+<!-- 首页内容 -->
+<view bindtap="clearLongpress">
+  <!-- 顶部定位搜索 -->
+  <view class="top_contain">
+    <view class="position">
+      <image src="../../images/position.png"></image>
+      <text class="none" bindtap="getLoc">{{city}}</text>
+    </view>
+    <view class="search">
+      <image src="../../images/search.png"></image>
+      <input value="" type="text" placeholder="巴黎圣母院" bindtap="clickSearch">
+
+      </input>
+    </view>
+    <view bindtap="toOneself"><open-data class="info" type="userAvatarUrl" open-gid=""></open-data></view>
+    
+  </view>
+
+  <!-- 轮播图 -->
+  <view class="banner">
+    <swiper autoplay="true" circular="true" duration="1000">
+      <swiper-item wx:for="{{bannerPath}}" wx:key="index">
+        <image src="{{item.img.url}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- 古今中外 -->
+  <view class="top_list">
+    <view class="left" bindtap="inner_click">
+      <image src="{{getChinese}}"></image>
+      <view class="text">
+        <text class="big">古今</text>
+        <text class="small">(国内)</text>
+      </view>
+    </view>
+    <view class="right" bindtap="outer_click">
+      <image src="{{getEnglish}}"></image>
+      <view class="text">
+        <text class="big">中外</text>
+        <text class="small">(国外)</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 精品推荐 -->
+  <view class="boutique">
+    <view class="title">精品推荐</view>
+    <view class="list">
+      <view class="list_content" wx:for="{{listContent}}" wx:key="index" data-index="{{index}}"
+        bindlongpress="longPress" style="box-shadow:{{item.shadow}}">
+        <image class="l_con" src="{{item.img.url}}"></image>
+        <text class="name">{{item.name}}</text>
+        <view class="zan" style="display:{{item.icon}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="clickZan">
+          <text wx:if="{{!item.status}}">点赞</text>
+          <text wx:if="{{item.status}}">取消</text>
+        </view>
+        <view class="addBook" style="display:{{item.icon}}" data-id="{{item.id}}" data-index="{{index}}"
+          bindtap="addBook">
+          <text wx:if="{{!item.bookStatus}}">加入书架</text>
+          <text wx:if="{{item.bookStatus}}">已加入</text>
+        </view>
+        <view class="shade" style="background:{{bg}}" animation="{{item.animation}}" bindtap="toStory"
+          data-name="{{item.name}}" data-id="{{item.id}}"></view>
+      </view>
+    </view>
+  </view>
+
+</view>

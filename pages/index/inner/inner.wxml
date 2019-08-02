@@ -1,0 +1,54 @@
+<!--pages/index/inner/inner.wxml-->
+<!-- 顶部定位搜索 -->
+<view bindtap="clearLongpress">
+    <view class="top_contain">
+        <view class="search" >
+            <image src="../../../images/search.png"></image>
+            <input value="" type="text" placeholder="巴黎圣母院" bindtap="clickSearch">
+            </input>
+        </view>
+    </view>
+
+    <view class="selector">
+        <view class="dynasty {{color?'yes':'no'}}" bindtap="click_dynasty">{{dynasty_text}}</view>
+        <!-- 朝代下拉选择框 -->
+        <scroll-view class="select_dynasty" wx:if="{{select_}}" scroll-y="true">
+            <block wx:for="{{dynasty}}" wx:key="id">
+                <view class="select_con" bindtap="select_dy" data-id="{{item.sort}}" data-text="{{item.d_name}}">
+                    {{item.d_name}}</view>
+            </block>
+        </scroll-view>
+        <view class="year {{color2?'yes':'no'}}" bindtap="click_year">年代排序<view
+                class="arrow {{rotate?'r-down':'r-default'}}">></view>
+        </view>
+        <!-- 年代下拉选择框 -->
+        <view class="select_box" wx:if="{{select}}">
+            <view class="select_con" bindtap="select_asc" data-id="{{sortId}}">年代从低到高</view>
+            <view class="select_con" bindtap="select_desc" data-id="{{sortId}}">年代从高到低</view>
+        </view>
+        <view class="new {{color3?'yes':'no'}}" bindtap="click_new">最新</view>
+    </view>
+
+    <view class="content">
+        <view class="list">
+            <view class="list_content" wx:for="{{listContent}}" wx:key="index" data-index="{{index}}"
+                bindlongpress="longPress" style="box-shadow:{{item.shadow}}">
+                <image class="l_con" src="{{item.img.url}}"></image>
+                <text class="name">{{item.name}}</text>
+                <view class="zan" style="display:{{item.icon}}" data-id="{{item.id}}" data-index="{{index}}"
+                    bindtap="clickZan">
+                    <text wx:if="{{!item.status}}">点赞</text>
+                    <text wx:if="{{item.status}}">取消</text>
+                </view>
+                <view class="addBook" style="display:{{item.icon}}" data-id="{{item.id}}" data-index="{{index}}"
+                    bindtap="addBook">
+                    <text wx:if="{{!item.bookStatus}}">加入书架</text>
+                    <text wx:if="{{item.bookStatus}}">已加入</text>
+                </view>
+                <view class="shade" style="background:{{bg}}" animation="{{item.animation}}" data-id="{{item.id}}"
+                    data-name="{{item.name}}" bindtap="toStory">
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

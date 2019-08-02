@@ -1,0 +1,19 @@
+<!--pages/oneself/oneself.wxml-->
+<view class="user">
+    <image class="avatar" src="{{avatarUrl}}"></image>
+    <view class="name">{{nickName}}</view>
+</view>
+
+<view class="function">
+    <view class="topline" bindtap="clickBook">
+        <image class="icon" src="../../images/mybook.png"></image>
+        <text>我的书架</text>
+        <text class="right">></text>
+    </view>
+    <view class="topline" bindtap="clickRecord">
+        <image class="icon" src="../../images/zan.png"></image>
+        <text>我的点赞</text>
+        <text class="right">></text>
+    </view>
+    <view class="topline"></view>
+</view>

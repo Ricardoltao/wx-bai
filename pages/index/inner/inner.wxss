@@ -1,0 +1,219 @@
+/* pages/index/inner/inner.wxss */
+/* 顶部定位搜索 */
+.top_contain {
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.search {
+  width: 450rpx;
+  height: 60rpx;
+  background: #f5f5f5;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.search image {
+  width: 28rpx;
+  height: 32rpx;
+  margin-left: 10px;
+  padding-right: 10px;
+  border-right: 1px solid #aaa;
+}
+
+.search input {
+  margin-left: 5px;
+  width: 75%;
+  font-size: 15px;
+}
+
+.info {
+  width: 75rpx;
+  height: 75rpx;
+  background: pink;
+  border-radius: 50%;
+}
+
+/* 顶部选择界面 */
+.selector{
+  display: flex;
+  font-size: 14px;
+  color: #aaa;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px 0;
+  position: relative;
+}
+
+.selector .yes{
+  color: #000;
+}
+
+.selector .no{
+  color: #aaa;
+}
+
+/* 选择朝代 */
+.selector .dynasty{
+  position: relative;
+  width: 140rpx;
+  text-align: center;
+}
+
+.selector .select_dynasty{
+  position: absolute;
+  top: 65rpx;
+  left: 7%;
+  width: 24%;
+  height: 200rpx;
+  background: #fff;
+  border:1px solid #aaa;
+  z-index: 2;
+  overflow: hidden;
+  animation: select_ 0.5s;
+  -webkit-animation: select_ 0.5s;
+}
+
+@keyframes select_{
+  from{
+    height: 0;
+  }
+  to{
+    height: 200rpx;
+  }
+}
+
+.selector .select_con{
+  text-align: center;
+  padding: 5px 0
+}
+
+/* 年代排序 */
+.selector .year{
+  position: relative;
+}
+
+.selector .arrow{
+  position: absolute;
+  top:0;
+  right: -30rpx;
+}
+
+.selector .r-down{
+  transform: rotate(90deg);
+}
+
+.selector .r-default{
+  transform: rotate(0deg);
+}
+
+.select_box{
+  position: absolute;
+  top: 65rpx;
+  width: 90%;
+  background: #fff;
+  color: #000;
+  border:1px solid #aaa;
+  z-index: 2;
+  overflow: hidden;
+  animation: select 1s;
+}
+
+@keyframes select{
+  from{
+    height: 0rpx;
+  }
+
+  to{
+    height:120rpx;
+  }
+}
+
+.select_box .select_con{
+  text-align: center;
+  padding: 5px 0;
+}
+
+.content{
+  border-top: 1px solid #eee;
+}
+
+.content .list{
+  border-top: 1px solid #aaa;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.content .list_content{
+  margin: 30rpx 0 0 50rpx;
+  width: 300rpx;
+  height: 450rpx;
+  position: relative;
+  
+}
+
+.content .list_content .l_con{
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.content .list_content .name{
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+  color: #000;
+  background: #f5f5f5;
+  border: 1px solid #e2e2e2;
+  border-top: none;
+}
+
+.content .list_content .zan{
+  background: #ff5151;
+  width: 85rpx;
+  height: 85rpx;
+  line-height: 85rpx;
+  text-align: center;
+  font-size: 20rpx;
+  border-radius: 50%;
+  color: #fff;
+  position: absolute;
+  left: 35%;
+  top: 15%;
+  z-index: 1;
+  display: none;
+}
+
+.content .list_content .addBook{
+  background: #60bb80;
+  width: 85rpx;
+  height: 85rpx;
+  line-height: 85rpx;
+  text-align: center;
+  font-size: 16rpx;
+  border-radius: 50%;
+  color: #fff;
+  position: absolute;
+  left: 35%;
+  top: 60%;
+  z-index: 1;
+  display: none;
+}
+
+.content .list_content .shade{
+  background: #000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  opacity: 0;
+}

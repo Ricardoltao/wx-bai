@@ -1,0 +1,33 @@
+<!--pages/bookshelf/bookshelf.wxml-->
+<view class="top_content">
+    <view class="search" bindtap="clickSearch">
+        <image src="../../images/search.png"></image>
+        <input value="" type="text" placeholder="书架内部搜索">
+
+        </input>
+    </view>
+    <view class="management status">
+        <view wx:if="{{!management_book}}" bindtap="management">管理</view>
+        <view wx:if="{{management_book}}" bindtap="finish">完成</view>
+    </view>
+    <view class="delete_">
+        <view wx:if="{{management_book}}" class="delete status" bindtap="delete">删除</view>
+    </view>
+
+</view>
+
+<view class="mybook">
+    <view wx:for="{{mb_list}}" wx:key="item" bindtap="select" data-id="{{index}}">
+        <view class="mb_list">
+            <view class="click"  catchtap="toStory" data-name="{{item.name}}" data-id="{{item.story_id}}"></view>
+            <image class="l_con" src="{{item.url}}"></image>
+            <view class="name">{{item.name}}</view>
+            <image class="complete" wx:if="{{item.complete}}" src="{{item.completePath}}"></image>
+            <view class="shade" wx:if="{{management_book}}"></view>
+            <view class="checked" wx:if="{{management_book}}">
+                <image wx:if="{{!item.checked}}" src="../../images/selected.png"></image>
+                <image wx:if="{{item.checked}}" src="../../images/unselected.png"></image>
+            </view>
+        </view>
+    </view>
+</view>
