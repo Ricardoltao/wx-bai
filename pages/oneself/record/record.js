@@ -15,7 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    util.tokenRequest('https://www.lrnjy.club/bst/public/api/v1/parise/readStory', 'GET', app.globalData.token, res => {
+    util.tokenRequest('https://www.lrnjy.club/bst/public/index.php/api/v1/parise/readStory', 'GET', app.globalData.token, res => {
       for (let i = 0; i < res.data.length; i++) {
         res.data[i]['checked'] = false;
       }
@@ -155,7 +155,7 @@ Page({
 
     let that = this;
     wx.request({
-      url: 'https://www.lrnjy.club/bst/public/api/v1/parise/delsomeParise',
+      url: 'https://www.lrnjy.club/bst/public/index.php/api/v1/parise/delsomeParise',
       data: {
         story_id: string
       },

@@ -28,7 +28,7 @@ Page({
     let that = this;
     //搜索历史
     wx.request({
-      url: 'https://www.lrnjy.club/bst/public/api/v1/search/look',
+      url: 'https://www.lrnjy.club/bst/public/index.php/api/v1/search/look',
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
         token: app.globalData.token
@@ -46,7 +46,7 @@ Page({
 
     //热门搜索
     wx.request({
-      url: 'https://www.lrnjy.club/bst/public/api/v1/search/remen',
+      url: 'https://www.lrnjy.club/bst/public/index.php/api/v1/search/remen',
       data: {},
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       // header: {}, // 设置请求的 header
@@ -86,7 +86,7 @@ Page({
     //console.log(this.data.storyName)
     let searchName = this.data.searchName || this.data.storyName;
     wx.request({
-      url: 'https://www.lrnjy.club/bst/public/api/v1/search/search',
+      url: 'https://www.lrnjy.club/bst/public/index.php/api/v1/search/search',
       data: {
         Storyname: searchName,
       },
@@ -118,7 +118,7 @@ Page({
   delete: function () {
     let that = this;
     wx.request({
-      url: 'https://www.lrnjy.club/bst/public/api/v1/search/delAllSearch',
+      url: 'https://www.lrnjy.club/bst/public/index.php/api/v1/search/delAllSearch',
       data: {},
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {

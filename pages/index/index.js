@@ -28,11 +28,8 @@ Page({
         wx.request({
           url: 'https://www.lrnjy.club/bst/public/index.php/api/v1/banner/1',
             method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-            header: {
-              'content-type': 'application/x-www-form-urlencoded'
-            },// 设置请求的 header
             success: res => {
-                //console.log(res.data.items)
+                console.log(res)
                 this.setData({
                     bannerPath: res.data.items
                 })

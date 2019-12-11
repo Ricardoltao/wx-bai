@@ -28,7 +28,7 @@ Page({
     let id=this.data.storyId;
     var that = this;
     wx.request({
-      url: 'http://47.100.180.114/bst/public/api/v1/content/getContent/'+id,
+      url: 'https://www.lrnjy.club/bst/public/index.php/api/v1/content/getContent/'+id,
       data: {},
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       // header: {}, // 设置请求的 header
@@ -70,7 +70,7 @@ Page({
     let name = this.data.storyName;
     let that = this
     //加入书架
-    util.tokenRequest('https://www.lrnjy.club/bst/public/api/v1/collection/readStory', 'GET', app.globalData.token, res => {
+    util.tokenRequest('https://www.lrnjy.club/bst/public/index.php/api/v1/collection/readStory', 'GET', app.globalData.token, res => {
       this.setData({
         listBook: res.data
       })
@@ -84,7 +84,7 @@ Page({
       //console.log(this.data.listBook)
     })
     //点赞
-    util.tokenRequest('https://www.lrnjy.club/bst/public/api/v1/parise/readStory', 'GET', app.globalData.token, res => {
+    util.tokenRequest('https://www.lrnjy.club/bst/public/index.php/api/v1/parise/readStory', 'GET', app.globalData.token, res => {
       //console.log(res)
       this.setData({
         listPraise: res.data
@@ -264,14 +264,14 @@ Page({
   clickZan: function () {
     let id = this.data.storyId;
     if (this.data.zanShow) {
-      util.tokenRequest('https://www.lrnjy.club/bst/public/api/v1/parise/getParise/' + id, 'POST', app.globalData.token, res => {
+      util.tokenRequest('https://www.lrnjy.club/bst/public/index.php/api/v1/parise/getParise/' + id, 'POST', app.globalData.token, res => {
         console.log('点赞成功');
         this.setData({
           zanShow: false
         })
       })
     } else {
-      util.tokenRequest('https://www.lrnjy.club/bst/public/api/v1/parise/delParise/' + id, 'DELETE', app.globalData.token, res => {
+      util.tokenRequest('https://www.lrnjy.club/bst/public/index.php/api/v1/parise/delParise/' + id, 'DELETE', app.globalData.token, res => {
         console.log('取消点赞');
         this.setData({
           zanShow: true
@@ -283,7 +283,7 @@ Page({
   clickAdd: function () {
     let id = this.data.storyId;
     if (this.data.addShow) {
-      util.tokenRequest('https://www.lrnjy.club/bst/public/api/v1/collection/getCollection/' + id, 'POST', app.globalData.token, res => {
+      util.tokenRequest('https://www.lrnjy.club/bst/public/index.php/api/v1/collection/getCollection/' + id, 'POST', app.globalData.token, res => {
         console.log('加入书架');
         this.setData({
           addShow: false

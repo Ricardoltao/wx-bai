@@ -27,7 +27,7 @@ Page({
   onLoad: function () {
     let that = this;
     //加入书架
-    util.tokenRequest('https://www.lrnjy.club/bst/public/api/v1/collection/readStory', 'GET', app.globalData.token, res => {
+    util.tokenRequest('https://www.lrnjy.club/bst/public/index.php/api/v1/collection/readStory', 'GET', app.globalData.token, res => {
       this.setData({
         listBook: res.data
       })
@@ -35,18 +35,18 @@ Page({
     })
 
     //点赞
-    util.tokenRequest('https://www.lrnjy.club/bst/public/api/v1/parise/readStory', 'GET', app.globalData.token, res => {
+    util.tokenRequest('https://www.lrnjy.club/bst/public/index.php/api/v1/parise/readStory', 'GET', app.globalData.token, res => {
       this.setData({
         listPraise: res.data
       })
       //页面渲染
-      util.pageShow('https://www.lrnjy.club/bst/public/api/v1/story/2', 'POST', this.data.listPraise, this.data.listBook, this.fnSetData)
+      util.pageShow('https://www.lrnjy.club/bst/public/index.php/api/v1/story/2', 'POST', this.data.listPraise, this.data.listBook, this.fnSetData)
       console.log(this.data.listPraise)
 
     })
 
     wx.request({
-      url: 'https://www.lrnjy.club/bst/public/api/v1/dynasty/sendDynasty',
+      url: 'https://www.lrnjy.club/bst/public/index.php/api/v1/dynasty/sendDynasty',
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       // header: {}, // 设置请求的 header
       success: function(res){
@@ -130,7 +130,7 @@ Page({
     var id = e.currentTarget.dataset.id;
     var that = this;
     //页面渲染
-    util.pageShow('https://www.lrnjy.club/bst/public/api/v1/story/' + id, 'POST', this.data.listPraise, this.data.listBook, this.fnSetData);
+    util.pageShow('https://www.lrnjy.club/bst/public/index.php/api/v1/story/' + id, 'POST', this.data.listPraise, this.data.listBook, this.fnSetData);
     that.setData({
       dynasty_text: text,
       select_: false,
@@ -154,7 +154,7 @@ Page({
   select_asc: function (e) {
     console.log(e.currentTarget.dataset)
     var sortId = e.currentTarget.dataset.id;
-    util.pageShow('https://www.lrnjy.club/bst/public/api/v1/story/asc/' + sortId, 'POST', this.data.listPraise, this.data.listBook, this.fnSetData);
+    util.pageShow('https://www.lrnjy.club/bst/public/index.php/api/v1/story/asc/' + sortId, 'POST', this.data.listPraise, this.data.listBook, this.fnSetData);
     this.setData({
       select: false,
       rotate: false
@@ -165,7 +165,7 @@ Page({
   select_desc: function (e) {
     console.log(e.currentTarget.dataset)
     var sortId = e.currentTarget.dataset.id;
-    util.pageShow('https://www.lrnjy.club/bst/public/api/v1/story/desc/' + sortId, 'POST', this.data.listPraise, this.data.listBook, this.fnSetData);
+    util.pageShow('https://www.lrnjy.club/bst/public/index.php/api/v1/story/desc/' + sortId, 'POST', this.data.listPraise, this.data.listBook, this.fnSetData);
     this.setData({
       select: false,
       rotate: false
@@ -174,7 +174,7 @@ Page({
 
   //最新
   click_new: function () {
-    util.pageShow('https://www.lrnjy.club/bst/public/api/v1/story/newest', 'GET', this.data.listPraise, this.data.listBook, this.fnSetData);
+    util.pageShow('https://www.lrnjy.club/bst/public/index.php/api/v1/story/newest', 'GET', this.data.listPraise, this.data.listBook, this.fnSetData);
     this.setData({
       color: false,
       color1: false,
@@ -195,7 +195,7 @@ Page({
     //console.log(zan)
     let that = this;
     if (!this.data.listContent[index].status) {
-      util.tokenRequest('https://www.lrnjy.club/bst/public/api/v1/parise/getParise/' + id, 'POST', token, res => {
+      util.tokenRequest('https://www.lrnjy.club/bst/public/index.php/api/v1/parise/getParise/' + id, 'POST', token, res => {
         console.log('点赞成功');
         wx.showToast({
           title: '点赞成功',
@@ -207,7 +207,7 @@ Page({
         })
       })
     } else {
-      util.tokenRequest('https://www.lrnjy.club/bst/public/api/v1/parise/delParise/' + id, 'DELETE', token, res => {
+      util.tokenRequest('https://www.lrnjy.club/bst/public/index.php/api/v1/parise/delParise/' + id, 'DELETE', token, res => {
         console.log('取消点赞');
         wx.showToast({
           title: '取消点赞',
@@ -229,7 +229,7 @@ Page({
     let id = e.currentTarget.dataset.id;
     let that = this;
     if (!this.data.listContent[index].bookStatus) {
-      util.tokenRequest('https://www.lrnjy.club/bst/public/api/v1/collection/getCollection/' + id, 'POST', token, res => {
+      util.tokenRequest('https://www.lrnjy.club/bst/public/index.php/api/v1/collection/getCollection/' + id, 'POST', token, res => {
         console.log('加入书架');
         wx.showToast({
           title: '加入书架',

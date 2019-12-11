@@ -43,31 +43,31 @@ Page({
                   console.log("用户的code:" + res.code);
                   console.log(res)
                   var code = res.code
-                  // wx.request({
-                  //   url: 'https://www.lrnjy.club/bst/public/index.php/api/v1/token/user',
-                  //   method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-                  //   header: {
-                  //     'content-type': 'application/x-www-form-urlencoded'
-                  //   }, // 设置请求的 header
-                  //   data: {
-                  //     code: code
-                  //   },
-                  //   success: function (res) {
-                  //     console.log(res)
-                  //     console.log('token令牌：' + res.data)
-                  //     wx.setStorageSync('token', res.data)
-                  //     app.globalData.token = res.data;
-                  //     wx.switchTab({
-                  //       url: '../index/index',
-                  //       success: function (res) {
-                  //         console.log('登录成功')
-                  //       },
-                  //     })
-                  //   },
-                  //   fail: function () {
-                  //     console.log('未获得token')
-                  //   },
-                  // })
+                  wx.request({
+                    url: 'https://www.lrnjy.club/bst/public/index.php/api/v1/token/user',
+                    method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                    header: {
+                      'content-type':'application/json'
+                    }, // 设置请求的 header
+                    data: {
+                      code: code
+                    },
+                    success: function (res) {
+                      console.log(res)
+                      console.log('token令牌：' + res.data)
+                      wx.setStorageSync('token', res.data)
+                      app.globalData.token = res.data;
+                      wx.switchTab({
+                        url: '../index/index',
+                        success: function (res) {
+                          console.log('登录成功')
+                        },
+                      })
+                    },
+                    fail: function () {
+                      console.log('未获得token')
+                    },
+                  })
                 },
                 fail: function (res) {
                   console.log('获取用户信息失败')

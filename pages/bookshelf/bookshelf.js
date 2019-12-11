@@ -23,7 +23,7 @@ Page({
   },
 
   onShow: function () {
-    util.tokenRequest('https://www.lrnjy.club/bst/public/api/v1/collection/readStory', 'GET', app.globalData.token, res => {
+    util.tokenRequest('https://www.lrnjy.club/bst/public/index.php/api/v1/collection/readStory', 'GET', app.globalData.token, res => {
       this.setData({
         mb_list: res.data
       })
@@ -94,7 +94,7 @@ Page({
     }
 
     wx.request({
-      url: 'https://www.lrnjy.club/bst/public/api/v1/collection/delsomeCollection',
+      url: 'https://www.lrnjy.club/bst/public/index.php/api/v1/collection/delsomeCollection',
       data: {
         story_id: string
       },
